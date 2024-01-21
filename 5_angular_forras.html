@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Unit teszt feladat</title>
+    <script src="testBase.js"></script>
+</head>
+
+<body>
+    <div id="newProj">
+        <script> document.getElementById('newProj').innerText = 'ng new listaFeladat';</script>
+    </div>
+    <div id="newComp">
+        <script> document.getElementById('newComp').innerText = 'ng generate component listacomp';</script>
+    </div>
+    <div id="elemekArray">
+        <script>
+            document.getElementById('elemekArray').innerText = 'let elemek = ["Elem1", "Elem2", "Elem3"];';
+        </script>
+    </div>
+    <div id="angularFelsorolas">
+        <script>
+            document.getElementById('angularFelsorolas').innerHTML = `
+                <ul>
+                    <li *ngFor="let elem of elemek">{{ elem }}</li>
+                </ul>
+            `;
+        </script>
+    </div>
+    <hr>
+    <div id="testResult">
+        <h2>Tesztek</h2>
+    </div>
+    <script src="testAngular.js"></script>
+</body>
+
+</html>

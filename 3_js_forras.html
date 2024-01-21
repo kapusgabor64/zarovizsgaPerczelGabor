@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript Unit teszt feladat</title>
+	<script type="text/javascript">
+
+		//Feladat1
+
+		function kivalogatParosOtven(array) {
+			return array.filter(function (elem) {
+				return elem % 2 === 0 && elem > 50;
+			});
+		}
+		var tesztEredmeny = kivalogatParosOtven([10, 20, 3, 5, 100, 50, 60, 53]);
+		console.log(tesztEredmeny);
+
+		//Feladat2
+
+		function aBetukSzamaDiv() {
+			var firstDivContent = document.querySelector('body > div').textContent;
+			var countOfA = (firstDivContent.match(/a/g) || []).length;
+			return countOfA;
+		}
+		var tesztEredmeny = aBetukSzamaDiv();
+		console.log(tesztEredmeny);
+
+		//Feladat3
+
+		function osszeadasFeliras(osztaly, operandus1, operandus2) {
+
+			if (typeof operandus1 !== 'number' || typeof operandus2 !== 'number' || isNaN(operandus1) || isNaN(operandus2)) {
+				console.error('Az operandusoknak számnak kell lenniük.');
+				return;
+			}
+
+			var elemek = document.getElementsByClassName(osztaly);
+
+			if (elemek.length > 0) {
+
+				var elsoElem = elemek[0];
+
+				var osszeg = operandus1 + operandus2;
+
+				var ujParagraf = document.createElement('p');
+				ujParagraf.textContent = operandus1 + ' + ' + operandus2 + ' = ' + osszeg;
+
+				elsoElem.appendChild(ujParagraf);
+			} else {
+				console.error('Nem található elem az adott osztálynévvel.');
+			}
+		}
+
+		osszeadasFeliras('eredmeny', 2, 3);
+
+	</script>
+	<script src="testBaseUnit.js"></script>
+</head>
+
+<body>
+	<div></div>
+	<hr>
+	<div id="testResult">
+		<h2>Tesztek</h2>
+	</div>
+</body>
+
+</html>
